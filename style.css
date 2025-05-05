@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .container {
+    width: 600px;
+    position: relative;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .post {
+    position: relative;
+  }
+  
+  .post img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .big-heart {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 200px;
+    color: rgba(255, 0, 0, 0.87);
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform ease-in 0.2s, ease-in-out 0.2s;
+  }
+  
+  .big-heart.active {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+
+  .confetti {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: red;
+    border-radius: 50%;
+    animation: explode 1.5s ease-out forwards;
+  }
+
+  @keyframes explode {
+    0% {
+      transform: translate(0, 0);
+      opacity: 1;
+    }
+    
+    100% {
+      transform: translate(var(--x), var(--y));
+      opacity: 0;
+    }
+  }
+  
+  .actions {
+    padding: 10px;
+    background: #fff;
+    display: flex;
+    gap: 10px;
+  }
+  
+  #like-btn {
+    background: none;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+  }
+  
+  #like-icon {
+    color: black;
+    transition: color 0.3s ease;
+  }
+  
+  #like-icon.liked {
+    color: red;
+  }
+   
