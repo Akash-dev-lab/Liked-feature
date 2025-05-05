@@ -4,6 +4,49 @@ const likeIcon = document.getElementById("like-icon");
 
 let likeTimeout;
 
+// ...existing code...
+
+// Bouncing ball follows cursor with delay
+const ball = document.createElement("div");
+ball.style.position = "fixed";
+ball.style.width = "24px";
+ball.style.height = "24px";
+ball.style.borderRadius = "50%";
+ball.style.background = "#ff6600";
+ball.style.boxShadow = "0 2px 12px #ff660088";
+ball.style.pointerEvents = "none";
+ball.style.zIndex = "99999";
+ball.style.left = "0px";
+ball.style.top = "0px";
+ball.style.transform = "translate(-50%, -50%)";
+ball.style.transition = "box-shadow 0.2s";
+document.body.appendChild(ball);
+
+let mouseX = window.innerWidth / 2;
+let mouseY = window.innerHeight / 2;
+let ballX = mouseX, ballY = mouseY;
+
+window.addEventListener("mousemove", (e) => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+});
+
+function animateBall() {
+  // Smooth follow with delay
+  ballX += (mouseX - ballX) * 0.15;
+  ballY += (mouseY - ballY) * 0.15;
+  ball.style.left = `${ballX}px`;
+  ball.style.top = `${ballY}px`;
+
+  // Bouncing effect
+  const bounce = Math.abs(Math.sin(Date.now() / 200)) * 10;
+  ball.style.transform = `translate(-50%, -50%) translateY(-${bounce}px)`;
+
+  requestAnimationFrame(animateBall);
+}
+animateBall();
+// ...existing code...
+
 postImg.addEventListener("dblclick", () => {
   // Show big heart animation
   bigHeart.classList.add("active");
