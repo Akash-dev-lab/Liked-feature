@@ -8,6 +8,10 @@ A simple Instagram-like post feature built with HTML, CSS, and JavaScript.
 - Like button below the post toggles the like state.
 - Responsive and visually appealing UI.
 
+## Media Queries
+
+This project includes media queries to ensure a responsive design. The layout and styles adapt seamlessly to different screen sizes, providing an optimal user experience on both desktop and mobile devices.
+
 ## Files
 
 - `index.html` — Main HTML structure for the post.
