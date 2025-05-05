@@ -22,6 +22,7 @@ document.body.appendChild(ball);
 let mouseX = window.innerWidth / 2;
 let mouseY = window.innerHeight / 2;
 let ballX = mouseX, ballY = mouseY;
+let hue = 0;
 
 window.addEventListener("mousemove", (e) => {
   mouseX = e.clientX;
@@ -38,6 +39,11 @@ function animateBall() {
   // Bouncing effect
   const bounce = Math.abs(Math.sin(Date.now() / 200)) * 10;
   ball.style.transform = `translate(-50%, -50%) translateY(-${bounce}px)`;
+
+   // Infinite RGB color change
+   hue = (hue + 2) % 360;
+   ball.style.background = `hsl(${hue}, 100%, 50%)`;
+   ball.style.boxShadow = `0 2px 12px hsla(${hue}, 100%, 50%, 0.5)`;
 
   requestAnimationFrame(animateBall);
 }
