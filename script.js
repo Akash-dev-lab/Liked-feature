@@ -4,9 +4,6 @@ const likeIcon = document.getElementById("like-icon");
 
 let likeTimeout;
 
-// ...existing code...
-
-// Bouncing ball follows cursor with delay
 const ball = document.createElement("div");
 ball.style.position = "fixed";
 ball.style.width = "24px";
@@ -45,7 +42,7 @@ function animateBall() {
   requestAnimationFrame(animateBall);
 }
 animateBall();
-// ...existing code...
+
 
 postImg.addEventListener("dblclick", () => {
   // Show big heart animation
